@@ -1,0 +1,49 @@
+# Grading configuration for Lab 3.5: Monitoring & Observability
+
+assignment:
+  id: L3.5-monitoring
+  name: "Lab 3.5: Monitoring & Observability"
+  level: 3
+  type: lab
+  passing_score: 70
+
+checks:
+  - id: instantiate
+    name: "Agent Instantiation"
+    points: 25
+    type: instantiate
+    file: solution/agent.py
+  - id: swml_valid
+    name: "SWML Generation"
+    points: 25
+    type: swml_valid
+    file: solution/agent.py
+  - id: has_debug
+    name: "Debug Webhook"
+    points: 25
+    type: swml_contains
+    file: solution/agent.py
+    require:
+      - text: "debug"
+  - id: has_post_prompt
+    name: "Post-Prompt URL"
+    points: 25
+    type: swml_contains
+    file: solution/agent.py
+    require:
+      - text: "post_prompt"
+
+feedback:
+  pass: |
+    Excellent work! You've completed Lab 3.5: Monitoring & Observability.
+
+    **Next steps:**
+    - Review the concepts covered
+    - Continue to the next lab
+
+  fail: |
+    Some checks didn't pass. Review the requirements and try again.
+
+    **Tips:**
+    - Run `swaig-test solution/agent.py --list-tools` to verify functions
+    - Run `swaig-test solution/agent.py --dump-swml` to check SWML
